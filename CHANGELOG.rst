@@ -2,6 +2,11 @@
 Changelog for package husky_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.4 (2015-07-08)
+------------------
+* Fix laser path
+* Contributors: Paul Bovbel
+
 0.2.3 (2015-04-08)
 ------------------
 * Integrate husky_customization workflow
