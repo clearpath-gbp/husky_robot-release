@@ -44,12 +44,13 @@ namespace husky_base
   * Initialize Husky hardware
   */
   HuskyHardware::HuskyHardware(ros::NodeHandle nh, ros::NodeHandle private_nh, double target_control_freq)
-      : nh_(nh),
-        private_nh_(private_nh),
-        system_status_task_(husky_status_msg_),
-        power_status_task_(husky_status_msg_),
-        safety_status_task_(husky_status_msg_),
-        software_status_task_(husky_status_msg_, target_control_freq)
+    :
+    nh_(nh),
+    private_nh_(private_nh),
+    system_status_task_(husky_status_msg_),
+    power_status_task_(husky_status_msg_),
+    safety_status_task_(husky_status_msg_),
+    software_status_task_(husky_status_msg_, target_control_freq)
   {
     private_nh_.param<double>("wheel_diameter", wheel_diameter_, 0.3555);
     private_nh_.param<double>("max_accel", max_accel_, 5.0);
@@ -71,7 +72,8 @@ namespace husky_base
   */
   void HuskyHardware::resetTravelOffset()
   {
-    horizon_legacy::Channel<clearpath::DataEncoders>::Ptr enc = horizon_legacy::Channel<clearpath::DataEncoders>::requestData(polling_timeout_);
+    horizon_legacy::Channel<clearpath::DataEncoders>::Ptr enc = horizon_legacy::Channel<clearpath::DataEncoders>::requestData(
+      polling_timeout_);
     if (enc)
     {
       for (int i = 0; i < 4; i++)
@@ -91,7 +93,7 @@ namespace husky_base
   void HuskyHardware::initializeDiagnostics()
   {
     horizon_legacy::Channel<clearpath::DataPlatformInfo>::Ptr info =
-        horizon_legacy::Channel<clearpath::DataPlatformInfo>::requestData(polling_timeout_);
+      horizon_legacy::Channel<clearpath::DataPlatformInfo>::requestData(polling_timeout_);
     std::ostringstream hardware_id_stream;
     hardware_id_stream << "Husky " << info->getModel() << "-" << info->getSerial();
 
@@ -110,15 +112,16 @@ namespace husky_base
   void HuskyHardware::registerControlInterfaces()
   {
     ros::V_string joint_names = boost::assign::list_of("front_left_wheel")
-        ("front_right_wheel")("rear_left_wheel")("rear_right_wheel");
+      ("front_right_wheel")("rear_left_wheel")("rear_right_wheel");
     for (unsigned int i = 0; i < joint_names.size(); i++)
     {
       hardware_interface::JointStateHandle joint_state_handle(joint_names[i],
-                                                              &joints_[i].position, &joints_[i].velocity, &joints_[i].effort);
+                                                              &joints_[i].position, &joints_[i].velocity,
+                                                              &joints_[i].effort);
       joint_state_interface_.registerHandle(joint_state_handle);
 
       hardware_interface::JointHandle joint_handle(
-          joint_state_handle, &joints_[i].velocity_command);
+        joint_state_handle, &joints_[i].velocity_command);
       velocity_joint_interface_.registerHandle(joint_handle);
     }
     registerInterface(&joint_state_interface_);
@@ -141,30 +144,34 @@ namespace husky_base
   void HuskyHardware::updateJointsFromHardware()
   {
 
-    horizon_legacy::Channel<clearpath::DataEncoders>::Ptr enc = horizon_legacy::Channel<clearpath::DataEncoders>::requestData(polling_timeout_);
+    horizon_legacy::Channel<clearpath::DataEncoders>::Ptr enc = horizon_legacy::Channel<clearpath::DataEncoders>::requestData(
+      polling_timeout_);
     if (enc)
     {
+      ROS_DEBUG_STREAM("Received travel information (L:" << enc->getTravel(LEFT) << " R:" << enc->getTravel(RIGHT) << ")");
       for (int i = 0; i < 4; i++)
       {
-        double new_position = linearToAngular(enc->getTravel(i % 2)) - joints_[i].position_offset;
-        double delta = new_position - joints_[i].position;
+        double delta = linearToAngular(enc->getTravel(i % 2)) - joints_[i].position - joints_[i].position_offset;
 
-        // detect encoder rollover
+        // detect suspiciously large readings, possibly from encoder rollover
         if (std::abs(delta) < 1.0)
         {
-          joints_[i].position = new_position;
+          joints_[i].position += delta;
         }
         else
         {
-          //  rollover has occured, swallow the measurement and update the offset
-          joints_[i].position_offset = delta;
+          // suspicious! drop this measurement and update the offset for subsequent readings
+          joints_[i].position_offset += delta;
+          ROS_DEBUG("Dropping overflow measurement from encoder");
         }
       }
     }
 
-    horizon_legacy::Channel<clearpath::DataDifferentialSpeed>::Ptr speed = horizon_legacy::Channel<clearpath::DataDifferentialSpeed>::requestData(polling_timeout_);
+    horizon_legacy::Channel<clearpath::DataDifferentialSpeed>::Ptr speed = horizon_legacy::Channel<clearpath::DataDifferentialSpeed>::requestData(
+      polling_timeout_);
     if (speed)
     {
+      ROS_DEBUG_STREAM("Received linear speed information (L:" << speed->getLeftSpeed() << " R:" << speed->getRightSpeed() << ")");
       for (int i = 0; i < 4; i++)
       {
         if (i % 2 == LEFT)
