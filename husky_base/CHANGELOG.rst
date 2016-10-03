@@ -2,6 +2,11 @@
 Changelog for package husky_base
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.6 (2016-10-03)
+------------------
+* Adding support for the UM7 IMU.
+* Contributors: Tony Baltovski
+
 0.2.5 (2015-12-31)
 ------------------
 * Fix absolute value to handle negative rollover readings effectively

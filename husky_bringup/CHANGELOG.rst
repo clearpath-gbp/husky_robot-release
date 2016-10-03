@@ -2,6 +2,13 @@
 Changelog for package husky_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.6 (2016-10-03)
+------------------
+* Adding support for the UM7 IMU.
+* Added new ur_modern_driver
+* Added param for laser frame_id.
+* Contributors: TheDash, Tony Baltovski
+
 0.2.5 (2015-12-31)
 ------------------
 
