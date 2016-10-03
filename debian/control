@@ -1,0 +1,12 @@
+Source: ros-indigo-husky-bringup
+Section: misc
+Priority: extra
+Maintainer: Paul Bovbel <pbovbel@clearpathrobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin, ros-indigo-roslaunch
+Homepage: http://ros.org/wiki/husky_bringup
+Standards-Version: 3.9.2
+
+Package: ros-indigo-husky-bringup
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-scipy, ros-indigo-husky-base, ros-indigo-husky-control, ros-indigo-husky-description, ros-indigo-imu-filter-madgwick, ros-indigo-imu-transformer, ros-indigo-lms1xx, ros-indigo-microstrain-3dmgx2-imu, ros-indigo-nmea-comms, ros-indigo-nmea-navsat-driver, ros-indigo-robot-localization, ros-indigo-robot-upstart, ros-indigo-tf, ros-indigo-tf2-ros, ros-indigo-um6, ros-indigo-um7, ros-indigo-ur-modern-driver
+Description: Clearpath Husky installation and integration package
