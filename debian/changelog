@@ -1,0 +1,141 @@
+ros-indigo-husky-base (0.2.7-0trusty) trusty; urgency=high
+
+  * Follow-up to #9 <https://github.com/husky/husky_robot/issues/9>, missing default value for wheel_diameter
+  * changed Husky tire to 13 inches (0.3302m)
+  * Contributors: Martin Cote, Wolfgang Merkt
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Wed, 11 Apr 2018 04:00:00 -0000
+
+ros-indigo-husky-base (0.2.6-0trusty) trusty; urgency=high
+
+  * Adding support for the UM7 IMU.
+  * Contributors: Tony Baltovski
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Mon, 03 Oct 2016 04:00:00 -0000
+
+ros-indigo-husky-base (0.2.5-0trusty) trusty; urgency=high
+
+  * Fix absolute value to handle negative rollover readings effectively
+  * Another bitwise fix, now for x86.
+  * Formatting
+  * Fix length complement check.
+    There's a subtle difference in how ~ is implemented in aarch64 which
+    causes this check to fail. The new implementation should work on x86
+    and ARM.
+  * Contributors: Mike Purvis, Paul Bovbel
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Thu, 31 Dec 2015 05:00:00 -0000
+
+ros-indigo-husky-base (0.2.4-0trusty) trusty; urgency=high
+
+
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Wed, 08 Jul 2015 04:00:00 -0000
+
+ros-indigo-husky-base (0.2.3-0trusty) trusty; urgency=high
+
+  * Integrate husky_customization workflow
+  * Contributors: Paul Bovbel
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Wed, 08 Apr 2015 04:00:00 -0000
+
+ros-indigo-husky-base (0.2.2-0trusty) trusty; urgency=high
+
+  * Fix package urls
+  * Contributors: Paul Bovbel
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Mon, 23 Mar 2015 04:00:00 -0000
+
+ros-indigo-husky-base (0.2.1-0trusty) trusty; urgency=high
+
+  * Add missing dependencies
+  * Contributors: Paul Bovbel
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Mon, 23 Mar 2015 04:00:00 -0000
+
+ros-indigo-husky-base (0.2.0-0trusty) trusty; urgency=high
+
+  * Add UR5_ENABLED envvar
+  * Contributors: Paul Bovbel
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Mon, 23 Mar 2015 04:00:00 -0000
+
+ros-indigo-husky-base (0.1.5-0trusty) trusty; urgency=high
+
+  * Fix duration cast
+  * Contributors: Paul Bovbel
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Thu, 19 Feb 2015 05:00:00 -0000
+
+ros-indigo-husky-base (0.1.4-0trusty) trusty; urgency=high
+
+  * Correct issues with ROS time discontinuities - now using monotonic time source
+  * Implement a sane retry policy for communication with MCU
+  * Contributors: Paul Bovbel
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Fri, 13 Feb 2015 05:00:00 -0000
+
+ros-indigo-husky-base (0.1.3-0trusty) trusty; urgency=high
+
+  * Update description and maintainers
+  * Contributors: Paul Bovbel
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Fri, 30 Jan 2015 05:00:00 -0000
+
+ros-indigo-husky-base (0.1.2-0trusty) trusty; urgency=high
+
+  * Fix library install location
+  * Contributors: Paul Bovbel
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Tue, 20 Jan 2015 05:00:00 -0000
+
+ros-indigo-husky-base (0.1.1-0trusty) trusty; urgency=high
+
+  * Add missing description dependency
+  * Contributors: Paul Bovbel
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Tue, 13 Jan 2015 05:00:00 -0000
+
+ros-indigo-husky-base (0.1.0-0trusty) trusty; urgency=high
+
+  * Fixed encoder overflow issue
+  * Ported to ros_control for Indigo release
+  * Contributors: Mike Purvis, Paul Bovbel, finostro
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Mon, 12 Jan 2015 05:00:00 -0000
+
+ros-indigo-husky-base (0.0.5-0trusty) trusty; urgency=high
+
+  * Mark the config directory to install.
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Fri, 04 Oct 2013 04:00:00 -0000
+
+ros-indigo-husky-base (0.0.4-0trusty) trusty; urgency=high
+
+  * Parameterize husky port in env variable.
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Thu, 03 Oct 2013 04:00:00 -0000
+
+ros-indigo-husky-base (0.0.3-0trusty) trusty; urgency=high
+
+  * Add launchfile check.
+  * removing imu processing by dead_reckoning.py
+  * removing dynamic reconfigure from dead_reckoning because it was only there for handling gyro correction
+  * adding diagnostic aggregator and its related config file under config/diag_agg.yaml
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Tue, 24 Sep 2013 04:00:00 -0000
+
+ros-indigo-husky-base (0.0.2-0trusty) trusty; urgency=high
+
+  * Fix diagnostic_msgs dependency.
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Wed, 11 Sep 2013 04:00:00 -0000
+
+ros-indigo-husky-base (0.0.1-0trusty) trusty; urgency=high
+
+  * New husky_base package for Hydro, which contains the nodes
+    formerly in husky_bringup.
+
+ -- Paul Bovbel <pbovbel@clearpathrobotics.com>  Wed, 11 Sep 2013 04:00:00 -0000
+
+
