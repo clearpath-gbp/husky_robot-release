@@ -2,6 +2,9 @@
 Changelog for package husky_robot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.7 (2018-04-11)
+------------------
+
 0.2.6 (2016-10-03)
 ------------------
 * Adding support for the UM7 IMU.
