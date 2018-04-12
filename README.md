@@ -1,3 +1,29 @@
+## husky_robot (indigo) - 0.2.7-0
+
+The packages in the `husky_robot` repository were released into the `indigo` distro by running `/usr/bin/bloom-release husky_robot -t indigo -r indigo` on `Thu, 12 Apr 2018 03:24:34 -0000`
+
+These packages were released:
+- `husky_base`
+- `husky_bringup`
+- `husky_robot`
+
+Version of package(s) in repository `husky_robot`:
+
+- upstream repository: https://github.com/husky/husky_robot.git
+- release repository: https://github.com/clearpath-gbp/husky_robot-release.git
+- rosdistro version: `0.2.6-0`
+- old version: `0.2.6-0`
+- new version: `0.2.7-0`
+
+Versions of tools used:
+
+- bloom version: `0.6.4`
+- catkin_pkg version: `0.4.1`
+- rosdep version: `0.12.2`
+- rosdistro version: `0.6.8`
+- vcstools version: `0.1.40`
+
+
 ## husky_robot (indigo) - 0.2.6-0
 
 The packages in the `husky_robot` repository were released into the `indigo` distro by running `/usr/bin/bloom-release -t indigo -r indigo husky_robot` on `Mon, 03 Oct 2016 20:44:07 -0000`
