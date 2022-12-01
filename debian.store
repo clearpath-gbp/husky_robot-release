@@ -1,1 +1,1 @@
-{"trim": "", "base": "fe19584", "trimbase": "", "parent": "debian/noetic/husky_base", "previous": "ab530f7"}
+{"base": "6cf8975", "parent": "debian/noetic/husky_base", "previous": "1d242c6", "trim": "", "trimbase": ""}
