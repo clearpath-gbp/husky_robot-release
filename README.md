@@ -1,3 +1,29 @@
+## husky_robot (noetic) - 0.6.10-2
+
+The packages in the `husky_robot` repository were released into the `noetic` distro by running `/usr/bin/bloom-release husky_robot -r noetic -t noetic` on `Thu, 30 Nov 2023 19:38:07 -0000`
+
+These packages were released:
+- `husky_base`
+- `husky_bringup`
+- `husky_robot`
+
+Version of package(s) in repository `husky_robot`:
+
+- upstream repository: https://github.com/husky/husky_robot.git
+- release repository: https://github.com/clearpath-gbp/husky_robot-release.git
+- rosdistro version: `0.6.9-1`
+- old version: `0.6.10-1`
+- new version: `0.6.10-2`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.22.2`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## husky_robot (noetic) - 0.6.10-1
 
 The packages in the `husky_robot` repository were released into the `noetic` distro by running `/usr/bin/bloom-release husky_robot -r noetic -t noetic` on `Thu, 30 Nov 2023 19:35:15 -0000`
