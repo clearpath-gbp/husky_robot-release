@@ -44,6 +44,9 @@ Changelog for package husky_robot
 * Move packages into monorepo for kinetic; strip out ur packages
 * Contributors: Paul Bovbel, Tony Baltovski
 
+0.6.11 (2024-05-28)
+-------------------
+
 0.6.10 (2023-11-30)
 -------------------
 
