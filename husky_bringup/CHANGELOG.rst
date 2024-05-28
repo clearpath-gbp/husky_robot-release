@@ -82,6 +82,11 @@ Changelog for package husky_bringup
 * Move packages into monorepo for kinetic; strip out ur packages
 * Contributors: Paul Bovbel, Tony Baltovski
 
+0.6.11 (2024-05-28)
+-------------------
+* Updated Microstrain Configuration
+* Contributors: Luis Camero
+
 0.6.10 (2023-11-30)
 -------------------
 * Update realsense.launch
